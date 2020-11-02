@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="org-note-eureka:war">
+    <output-path>$PROJECT_DIR$/org-note-eureka/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>org-note-eureka</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="org-note-eureka-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="org-note-eureka:war exploded" />
+    </root>
+  </artifact>
+</component>

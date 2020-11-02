@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.note.mdm</groupId>
+    <artifactId>org-note-mdm</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>org-note-mdm</name>
+
+    <parent>
+        <groupId>org.note.moving</groupId>
+        <artifactId>org-note-moving</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <mybatis.spring>1.2.0</mybatis.spring>
+        <mysql.connector>8.0.11</mysql.connector>
+        <hikariCP>2.7.9</hikariCP>
+        <commons.lang3>3.8</commons.lang3>
+
+        <!--<redisson>3.11.6</redisson>-->
+        <redisson>3.8.2</redisson>
+    </properties>
+
+    <!--仅申明所管理的子模块，子模块需要显示引入所需兄弟模块的jar坐标 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!--============[公共框架相关]==================-->
+        <dependency>
+            <groupId>org.note.framework</groupId>
+            <artifactId>org-note-framework</artifactId>
+        </dependency>
+
+        <!--============[微服务相关]==================-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!--============[web相关]==================-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--============[数据库访问层相关]==================-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency><!--导入spring-boot-starter-jdbc依赖springboot就默认使用Hikari数据库连接池-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis.spring}</version>
+            <exclusions>
+                <exclusion><!--使用了HikariCP则把tomcat-jdbc连接池排除掉-->
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector}</version>
+        </dependency>
+        <!--============[redis相关]==================-->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>${redisson}</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.redisson</groupId>-->
+            <!--<artifactId>redisson-spring-boot-starter</artifactId>-->
+            <!--<version>${redisson}</version>-->
+        <!--</dependency>-->
+</dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <finalName>${project.name}</finalName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.source}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+        <!-- 不指定resources,则默认打包全部资源-->
+        <!--<resources>-->
+        <!--<resource>-->
+        <!--<directory>src/main/java</directory>-->
+        <!--<includes>-->
+        <!--<include>**/*.xml</include>-->
+        <!--</includes>-->
+        <!--</resource>-->
+        <!--</resources>-->
+    </build>
+</project>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="org-note-eureka" />
+        <module name="org-note-framework" />
+        <module name="org-note-gateway" />
+        <module name="org-note-mdm" />
+        <module name="org-note-user" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="org-note-eureka" target="1.8" />
+      <module name="org-note-framework" target="1.8" />
+      <module name="org-note-gateway" target="1.8" />
+      <module name="org-note-mdm" target="1.8" />
+      <module name="org-note-moving" target="1.8" />
+      <module name="org-note-user" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="org-note-eureka" options="-parameters" />
+      <module name="org-note-framework" options="-parameters" />
+      <module name="org-note-gateway" options="-parameters" />
+      <module name="org-note-mdm" options="-parameters" />
+      <module name="org-note-user" options="-parameters" />
+    </option>
+  </component>
+</project>
