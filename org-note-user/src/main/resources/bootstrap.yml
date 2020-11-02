@@ -1,10 +1,10 @@
 server:
   port: 8883
   servlet:
-    context-path: /org-domi-user
+    context-path: /org-note-user
 spring:
   application:
-    name: org-domi-user
+    name: org-note-user
   profiles:
     active: dev
 #-----------------------------------DAO层-mybatis-2/2[开始]-----------------------------------------------

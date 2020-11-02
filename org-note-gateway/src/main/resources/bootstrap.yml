@@ -1,10 +1,10 @@
 server:
   port: 8884
   servlet:
-    context-path: /org-domi-gateway
+    context-path: /org-note-gateway
 spring:
   application:
-    name: org-domi-gateway
+    name: org-note-gateway
   profiles:
     active: dev
 #-----------------------------------注册到注册中心[开始]--------------------------------------------------

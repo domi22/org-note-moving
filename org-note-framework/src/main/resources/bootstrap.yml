@@ -1,10 +1,10 @@
 server:
   port: 8883
   servlet:
-    context-path: /org-domi-framework
+    context-path: /org-note-framework
 spring:
   application:
-    name: org-domi-framework
+    name: org-note-framework
   profiles:
     active: dev
 #-----------------------------------注册到注册中心[开始]--------------------------------------------------

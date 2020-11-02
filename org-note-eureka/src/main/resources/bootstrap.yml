@@ -1,6 +1,6 @@
 spring:
   application:
-    name: org-domi-eureka
+    name: org-note-eureka
   profiles:
     active: dev
 server:

@@ -1,10 +1,10 @@
 server:
   port: 8885
   servlet:
-    context-path: /org-domi-mdm
+    context-path: /org-note-mdm
 spring:
   application:
-    name: org-domi-mdm
+    name: org-note-mdm
   profiles:
     active: dev
 #-----------------------------------DAO层-mybatis-2/2[开始]-----------------------------------------------
